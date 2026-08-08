@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""
 Daily Copernicus Marine pull for the Flamingo Fish Finder.
 Subsets sea-surface height (eddy edges) and subsurface temperature
 (depth of the 20 degC isotherm = thermocline proxy) for the box around
