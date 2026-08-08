@@ -12,7 +12,7 @@ import copernicusmarine as cm
 import xarray as xr
 
 BOX = dict(minimum_longitude=-87.3, maximum_longitude=-84.9,
-           minimum_latitude=9.1,   maximum_latitude=11.8)
+          (minimum_latitude=9.1, maximum_latitude=11.8)
 
 def grid_payload(lats, lons, arr):
     a = np.where(np.isfinite(arr), np.round(arr.astype(float), 4), None)
