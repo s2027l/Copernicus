@@ -15,15 +15,20 @@ import numpy as np
 import copernicusmarine as cm
 import xarray as xr
 
-BOX = dict(minimum_longitude=-87.3, maximum_longitude=-84.9, minimum_latitude=9.1, maximum_latitude=11.8)
+BOX = dict(
+    minimum_longitude=-87.3,
+    maximum_longitude=-84.9,
+    minimum_latitude=9.1,
+    maximum_latitude=11.8,
+)
 
-def grid_payload(lats,lons,arr):
+def grid_payload(lats, lons, arr):
     a = np.where(np.isfinite(arr), np.round(arr.astype(float), 4), None)
-    return {"lats": [round(float(x), 4) for x in lats],
-            "lons": [round(float(x), 4) for x in lons],
-            # ERDDAP-table-like row list the app already knows how to parse
-            "grid": [[None if v is None else v for v in row] for row in a.tolist()]}
-
+    return {
+        "lats": [round(float(x), 4) for x in lats],
+        "lons": [round(float(x), 4) for x in lons],
+        "grid": [[None if v is None else v for v in row] for row in a.tolist()],
+    }
 def main():
     today = datetime.date.today()
     start = (today - datetime.timedelta(days=2)).isoformat()
